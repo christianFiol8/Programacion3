@@ -96,6 +96,7 @@ public class Ventana extends JFrame {
 		
 		JButton btn = new JButton ("Acceder");
 		btn.setBounds(120,230, 150,60);
+		btn.setBackground(Color.green);
 		back.add(btn);
 		
 		
