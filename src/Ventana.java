@@ -32,14 +32,14 @@ public class Ventana extends JFrame {
 		
 		this.setLayout(null);
 		
+		
 		this.iniciarComponentes();
 		
 	}
 	
 	public void iniciarComponentes() {
 		
-		this.login();
-		
+		this.login();		
 		JPanel registro = new JPanel() ;
 		registro.setSize(this.getWidth()/2, this.getHeight());
 		registro.setBackground(Color.blue);
@@ -57,7 +57,7 @@ public class Ventana extends JFrame {
 		registro.add(registroTag);
 		
 		JLabel userName = new JLabel ("Nombre de Usuario: " , 0);
-		userName.setBounds(100,110,300,40);
+		userName.setBounds(100,100,300,40);
 		userName.setForeground(Color.white);
 		userName.setFont(new Font("Calibri", Font.BOLD , 20));
 		userName.setOpaque(true);
@@ -65,12 +65,13 @@ public class Ventana extends JFrame {
 		registro.add(userName);
 		
 		JTextField user = new JTextField();
-		user.setBounds(50, 160, 400, 40);
+		user.setBounds(50, 150, 400, 40);
 		user.setHorizontalAlignment(0);
 		registro.add(user);
 		
 		JLabel bio = new JLabel ("BIO" , 0);
 		bio.setBounds(100,200,300,30);
+		bio.setForeground(Color.white);
 		bio.setOpaque(true);
 		bio.setBackground(Color.yellow);
 		registro.add(bio);
@@ -84,19 +85,19 @@ public class Ventana extends JFrame {
 		JCheckBox item_box1 = new JCheckBox ("Dulces");
 		item_box1.setBounds(50, 360, 80, 30);
 		item_box1.setFont(new Font("Calibri", Font.BOLD , 20));
-		item_box1.setOpaque(true);
+		item_box1.setOpaque(false);
 		registro.add(item_box1);
 		
 		JCheckBox item_box2 = new JCheckBox ("Salado");
 		item_box2.setBounds(140, 360, 80, 30);
 		item_box2.setFont(new Font("Calibri", Font.BOLD , 20));
-		item_box2.setOpaque(true);
+		item_box2.setOpaque(false);
 		registro.add(item_box2);
 		
 		JCheckBox item_box3 = new JCheckBox ("Saludable");
 		item_box3.setBounds(240, 360, 110, 30);
 		item_box3.setFont(new Font("Calibri", Font.BOLD , 20));
-		item_box3.setOpaque(true);
+		item_box3.setOpaque(false);
 		registro.add(item_box3);
 		
 		
@@ -142,6 +143,7 @@ public class Ventana extends JFrame {
 		
 
 		this.add(registro);
+		
 		
 		this.repaint();
 		this.validate();
@@ -215,7 +217,7 @@ public class Ventana extends JFrame {
 		btn.setBackground(Color.green);
 		back.add(btn);
 		
-		
+		this.add(login);
 		
 	}
 }
