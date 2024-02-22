@@ -7,9 +7,14 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -39,10 +44,23 @@ public class Ventana extends JFrame {
 	
 	public void iniciarComponentes() {
 		
-		this.login();		
+		//this.login();		
+		//this.registro();
+		this.admin();
+		
+		
+		this.repaint();
+		this.validate();
+		
+		
+		
+	}
+	
+	
+	public void registro() {
 		JPanel registro = new JPanel() ;
 		registro.setSize(this.getWidth()/2, this.getHeight());
-		registro.setBackground(Color.blue);
+		registro.setBackground(Color.magenta);
 		registro.setLocation(500,0);
 		registro.setLayout(null);
 		
@@ -61,7 +79,7 @@ public class Ventana extends JFrame {
 		userName.setForeground(Color.white);
 		userName.setFont(new Font("Calibri", Font.BOLD , 20));
 		userName.setOpaque(true);
-		userName.setBackground(Color.yellow);
+		userName.setBackground(Color.darkGray);
 		registro.add(userName);
 		
 		JTextField user = new JTextField();
@@ -73,7 +91,7 @@ public class Ventana extends JFrame {
 		bio.setBounds(100,200,300,30);
 		bio.setForeground(Color.white);
 		bio.setOpaque(true);
-		bio.setBackground(Color.yellow);
+		bio.setBackground(Color.darkGray);
 		registro.add(bio);
 		
 		JTextArea bio_tex = new JTextArea();
@@ -106,19 +124,20 @@ public class Ventana extends JFrame {
 		terms_tag.setForeground(Color.white);
 		terms_tag.setFont(new Font("Calibri", Font.BOLD , 20));
 		terms_tag.setOpaque(true);
-		terms_tag.setBackground(Color.yellow);
+		terms_tag.setBackground(Color.darkGray);
 		registro.add(terms_tag);
 		
 		
 		JRadioButton accept_radio = new JRadioButton("Acepto");
 		accept_radio.setBounds(50, 440, 100, 40);
 		accept_radio.setFont(new Font("Calibri", Font.BOLD , 20));
-		
+		accept_radio.setOpaque(false);
 		registro.add(accept_radio);
 		
 		JRadioButton reject_radio = new JRadioButton("NO Acepto");
 		reject_radio.setBounds(250, 440, 100, 40);
-		reject_radio.setFont(new Font("Calibri", Font.BOLD , 20));
+		reject_radio.setFont(new Font("Calibri", Font.BOLD , 15));
+		reject_radio.setOpaque(false);
 		registro.add(reject_radio);
 		
 		
@@ -139,17 +158,8 @@ public class Ventana extends JFrame {
 		rgs_btn.setBackground(Color.green);
 		registro.add(rgs_btn);
 		
-		
-		
-
+	
 		this.add(registro);
-		
-		
-		this.repaint();
-		this.validate();
-		
-		
-		
 	}
 		
 		
@@ -218,6 +228,88 @@ public class Ventana extends JFrame {
 		back.add(btn);
 		
 		this.add(login);
+		
+	}
+	
+	public void admin() {
+		
+		JPanel adminPanel = new JPanel() ;
+		adminPanel.setSize(this.getWidth(), this.getHeight());
+		adminPanel.setLocation(0, 0);
+		adminPanel.setBackground(Color.gray);
+		adminPanel.setLayout(null);
+		
+		
+		JMenuBar barra = new JMenuBar();
+		JMenu menuFile = new JMenu("Archivo");
+		JMenuItem openItem = new JMenuItem("Abrir archivo...");
+		JMenuItem crearItem = new JMenuItem("Crear archivo...");
+		
+		barra.add(menuFile);
+		menuFile.add(openItem);
+		menuFile.add(crearItem);
+		this.setJMenuBar(barra);
+		
+		JLabel usersTag = new JLabel ("Usuarios" , 0);
+		usersTag.setFont(new Font("Agency FB" , Font.BOLD , 34));
+		usersTag.setForeground(Color.white);
+		usersTag.setLocation(350, 30);
+		usersTag.setSize(300, 70);
+		usersTag.setOpaque(true);
+		usersTag.setBackground(Color.darkGray);
+		adminPanel.add(usersTag);
+		
+		
+		JLabel titleWidget = new JLabel("Total de Usuarios" , 0);
+		titleWidget.setBounds(40, 120, 300, 40);
+		titleWidget.setFont(new Font("Agency FB" , Font.BOLD , 24));
+		titleWidget.setForeground(Color.white);
+		adminPanel.add(titleWidget);
+		
+		JLabel contentWidget = new JLabel("100" , 0);
+		contentWidget.setBounds(40, 150, 300, 40);
+		contentWidget.setFont(new Font("Agency FB" , Font.BOLD , 14));
+		contentWidget.setForeground(Color.white);
+		adminPanel.add(contentWidget);
+		
+		JLabel widget = new JLabel();
+		widget.setBounds(40, 120, 300, 80);
+		widget.setOpaque(true);
+		widget.setBackground(Color.black);
+		adminPanel.add(widget);
+		
+		JButton download = new JButton ("Exportar");
+		download.setBounds(700, 230, 100, 40);
+		download.setOpaque(true);
+		download.setBackground(Color.magenta);
+		adminPanel.add(download);
+		
+		JButton addUser = new JButton ("Añadir");
+		addUser.setBounds(840, 230, 100, 40);
+		addUser.setOpaque(true);
+		addUser.setBackground(Color.magenta);
+		adminPanel.add(addUser);
+		
+		String titles[]= {"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"};
+		String tableData [][] = {
+				{"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"},
+				{"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"},
+				{"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"},
+				{"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"},
+				{"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"},
+				{"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"},
+				{"NO.control" , "Nombre" , "Apellidos" , "Semestre" , "Promedio" , "Acciones"},
+		};
+		
+		JTable tablaUsuarios = new JTable (tableData, titles);
+		//tablaUsuarios.setBounds(40,280,920,300);
+		JScrollPane tableScroll = new JScrollPane (tablaUsuarios);
+		tableScroll.setBounds(40,280,920,300);
+		adminPanel.add(tableScroll);
+		
+		
+		
+		this.add(adminPanel);
 		
 	}
 }
