@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -26,8 +27,10 @@ public class Ventana extends JFrame {
 	public Ventana() {
 		
 		this.setTitle("Mi ventana");
-		this.setSize(1000,700);
-		this.setLocation(200, 200);
+		this.setSize(400,450);
+		this.setLocation(300, 50);
+		
+		
 		
 			
 		this.setVisible(true);
@@ -46,7 +49,8 @@ public class Ventana extends JFrame {
 		
 		//this.login();		
 		//this.registro();
-		this.admin();
+		//this.admin();
+		this.calculadora();
 		
 		
 		this.repaint();
@@ -310,6 +314,160 @@ public class Ventana extends JFrame {
 		
 		
 		this.add(adminPanel);
+		
+	}
+	
+	
+	public void calculadora() {
+		
+		JPanel calculadoraPanel = new JPanel() ;
+		calculadoraPanel.setSize(this.getWidth(), this.getHeight());
+		calculadoraPanel.setLocation(0, 0);
+		
+		//calculadoraPanel.setBounds(300, 50, 400, 550);
+		calculadoraPanel.setBackground(Color.black);
+		calculadoraPanel.setLayout(null);
+		
+		
+		JLabel resultadoBtn = new JLabel ();
+		resultadoBtn.setBounds(20, 30, 350, 40);
+		resultadoBtn.setBackground(Color.white);
+		resultadoBtn.setOpaque(true);
+		calculadoraPanel.add(resultadoBtn);
+		
+		JButton clearBtn = new JButton("CE");
+		clearBtn.setBounds(20, 90, 70, 40);
+		clearBtn.setBackground(Color.darkGray);
+		clearBtn.setForeground(Color.white);
+		clearBtn.setOpaque(true);
+		calculadoraPanel.add(clearBtn);
+		
+		JButton borrarBtn = new JButton("Borrar");
+		borrarBtn.setBounds(100, 90, 270, 40);
+		borrarBtn.setBackground(Color.gray);
+		borrarBtn.setForeground(Color.white);
+		borrarBtn.setOpaque(true);
+		calculadoraPanel.add(borrarBtn);
+		
+		JButton sieteBtn = new JButton("7");
+		sieteBtn.setBounds(20, 150, 70, 40);
+		sieteBtn.setBackground(Color.darkGray);
+		sieteBtn.setForeground(Color.white);
+		sieteBtn.setOpaque(true);
+		calculadoraPanel.add(sieteBtn);
+		
+		JButton ochoBtn = new JButton("8");
+		ochoBtn.setBounds(110, 150, 70, 40);
+		ochoBtn.setBackground(Color.darkGray);
+		ochoBtn.setForeground(Color.white);
+		ochoBtn.setOpaque(true);
+		calculadoraPanel.add(ochoBtn);
+		
+		JButton nueveBtn = new JButton("9");
+		nueveBtn.setBounds(200, 150, 70, 40);
+		nueveBtn.setBackground(Color.darkGray);
+		nueveBtn.setForeground(Color.white);
+		nueveBtn.setOpaque(true);
+		calculadoraPanel.add(nueveBtn);
+		
+		JButton divisionBtn = new JButton("/");
+		divisionBtn.setBounds(290, 150, 80, 40);
+		divisionBtn.setBackground(Color.darkGray);
+		divisionBtn.setForeground(Color.white);
+		divisionBtn.setOpaque(true);
+		calculadoraPanel.add(divisionBtn);
+		
+		JButton cuatroBtn = new JButton("4");
+		cuatroBtn.setBounds(20, 210, 70, 40);
+		cuatroBtn.setBackground(Color.darkGray);
+		cuatroBtn.setForeground(Color.white);
+		cuatroBtn.setOpaque(true);
+		calculadoraPanel.add(cuatroBtn);
+		
+		JButton cincoBtn = new JButton("5");
+		cincoBtn.setBounds(110, 210, 70, 40);
+		cincoBtn.setBackground(Color.darkGray);
+		cincoBtn.setForeground(Color.white);
+		cincoBtn.setOpaque(true);
+		calculadoraPanel.add(cincoBtn);
+		
+		JButton seisBtn = new JButton("6");
+		seisBtn.setBounds(200, 210, 70, 40);
+		seisBtn.setBackground(Color.darkGray);
+		seisBtn.setForeground(Color.white);
+		seisBtn.setOpaque(true);
+		calculadoraPanel.add(seisBtn);
+		
+		JButton multiplicacionBtn = new JButton("*");
+		multiplicacionBtn.setBounds(290, 210, 80, 40);
+		multiplicacionBtn.setBackground(Color.darkGray);
+		multiplicacionBtn.setForeground(Color.white);
+		multiplicacionBtn.setOpaque(true);
+		calculadoraPanel.add(multiplicacionBtn);
+		
+		
+		JButton unoBtn = new JButton ("1");
+		unoBtn.setBounds(20, 270, 70, 40);
+		unoBtn.setBackground(Color.darkGray);
+		unoBtn.setForeground(Color.white);
+		unoBtn.setOpaque(true);
+		calculadoraPanel.add(unoBtn);
+		
+		JButton dosBtn = new JButton ("2");
+		dosBtn.setBounds(110, 270, 70, 40);
+		dosBtn.setBackground(Color.darkGray);
+		dosBtn.setForeground(Color.white);
+		dosBtn.setOpaque(true);
+		calculadoraPanel.add(dosBtn);
+		
+		JButton tresBtn = new JButton ("2");
+		tresBtn.setBounds(200, 270, 70, 40);
+		tresBtn.setBackground(Color.darkGray);
+		tresBtn.setForeground(Color.white);
+		tresBtn.setOpaque(true);
+		calculadoraPanel.add(tresBtn);
+		
+		JButton restaBtn = new JButton("-");
+		restaBtn.setBounds(290, 270, 80, 40);
+		restaBtn.setBackground(Color.darkGray);
+		restaBtn.setForeground(Color.white);
+		restaBtn.setOpaque(true);
+		calculadoraPanel.add(restaBtn);
+		
+		
+		///////////
+		
+		JButton ceroBtn = new JButton ("0");
+		ceroBtn.setBounds(20, 330, 70, 40);
+		ceroBtn.setBackground(Color.darkGray);
+		ceroBtn.setForeground(Color.white);
+		ceroBtn.setOpaque(true);
+		calculadoraPanel.add(ceroBtn);
+		
+		JButton puntoBtn = new JButton (".");
+		puntoBtn.setBounds(110, 330, 70, 40);
+		puntoBtn.setBackground(Color.darkGray);
+		puntoBtn.setForeground(Color.white);
+		puntoBtn.setOpaque(true);
+		calculadoraPanel.add(puntoBtn);
+		
+		JButton igualBtn = new JButton ("=");
+		igualBtn.setBounds(200, 330, 70, 40);
+		igualBtn.setBackground(Color.darkGray);
+		igualBtn.setForeground(Color.white);
+		igualBtn.setOpaque(true);
+		calculadoraPanel.add(igualBtn);
+		
+		JButton sumaBtn = new JButton("+");
+		sumaBtn.setBounds(290, 330, 80, 40);
+		sumaBtn.setBackground(Color.darkGray);
+		sumaBtn.setForeground(Color.white);
+		sumaBtn.setOpaque(true);
+		calculadoraPanel.add(sumaBtn);
+		
+
+		
+		this.add(calculadoraPanel);
 		
 	}
 }
