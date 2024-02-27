@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -27,36 +28,27 @@ public class Ventana extends JFrame {
 	public Ventana() {
 		
 		this.setTitle("Mi ventana");
-		this.setSize(400,450);
+		this.setSize(800,600);
 		this.setLocation(300, 50);
-		
-		
-		
-			
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
 		this.setLocationRelativeTo(null);
-		
 		this.setLayout(null);
-		
-		
 		this.iniciarComponentes();
 		
 	}
 	
 	public void iniciarComponentes() {
 		
-		//this.login();		
+		this.login();		
 		//this.registro();
 		//this.admin();
-		this.calculadora();
+		//this.calculadora();
 		
 		
 		this.repaint();
 		this.validate();
-		
-		
 		
 	}
 	
@@ -172,64 +164,99 @@ public class Ventana extends JFrame {
 			
 			
 		JPanel login = new JPanel() ;
-		login.setSize(this.getWidth()/2, this.getHeight());
-		login.setBackground(Color.gray);
+		login.setSize(this.getWidth(), this.getHeight());
+		login.setBackground(Color.decode("#185CA4"));
 		login.setLayout(null);
 		
 		JPanel back = new JPanel ();
-		back.setBounds(50, 130, 400, 300);
-		back.setBackground(Color.darkGray);
+		back.setBounds(70, 90, 650, 350);
+		back.setBackground(Color.decode("#144981"));
 		back.setLayout(null);
 		login.add(back);
 	
-		JLabel loginTitle = new JLabel ("ACCEDER" , 0);
-		loginTitle.setFont(new Font("Agency FB" , Font.BOLD , 34));
+		JLabel loginTitle = new JLabel ("User Login" , 0);
+		loginTitle.setFont(new Font("Bookman Old Style" , Font.BOLD , 40));
 		loginTitle.setForeground(Color.white);
-		loginTitle.setLocation(100, 30);
-		loginTitle.setSize(300, 90);
-		loginTitle.setOpaque(true);
+		loginTitle.setBounds(10, 30, 800, 40);
+		loginTitle.setOpaque(false);
 		loginTitle.setBackground(Color.darkGray);
 		login.add(loginTitle);
 		
-		JLabel userName = new JLabel ("Nombre de Usuario: " , 2);
-		userName.setBounds(10,5,300,70);
+		JLabel miCuenta = new JLabel ("My Account" , 0);
+		miCuenta.setFont(new Font("Cambria" , Font.BOLD , 30));
+		miCuenta.setForeground(Color.yellow);
+		miCuenta.setBounds(230, 20, 200, 40);
+		back.add(miCuenta);
+		
+		JLabel userName = new JLabel ("Username: " , 2);
+		userName.setBounds(180,60,300,70);
 		userName.setForeground(Color.white);
-		userName.setFont(new Font("Calibri", Font.BOLD , 20));
+		userName.setFont(new Font("Bookman Old Style", Font.BOLD , 20));
 		back.add(userName);
+		
+		JLabel logoUser = new JLabel();
+		logoUser.setIcon(new ImageIcon(getClass().getResource("user-interface.png")));
+		logoUser.setBounds(150, 120, 24, 24);
+		back.add(logoUser);
 		
 		
 		JTextField user = new JTextField();
-		user.setBounds(10, 60, 300, 30);
+		user.setBounds(180,120, 300, 30);
 		back.add(user);
 		
+		/*JLabel logo = new JLabel ();
+		logo.setIcon(new ImageIcon(getClass().getResource("rain.png")));
+		logo.setBounds(100,450,200,200);
+		login.add(logo);*/
 		
-		JLabel password = new JLabel ("Contraseña: " , 2);
-		password.setBounds(10,80,300,70);
+		
+		JLabel password = new JLabel ("Password: " , 2);
+		password.setBounds(180,150,300,70);
 		password.setForeground(Color.white);
-		password.setFont(new Font("Calibri", Font.BOLD , 20));
+		password.setFont(new Font("Bookman Old Style", Font.BOLD , 20));
 		back.add(password);
 		
+		JLabel logoPassword = new JLabel();
+		logoPassword.setIcon(new ImageIcon(getClass().getResource("password.png")));
+		logoPassword.setBounds(150, 200, 24, 24);
+		back.add(logoPassword);
+		
 		JPasswordField passwordField = new JPasswordField();
-		passwordField.setBounds(10, 135 , 300 , 30);
+		passwordField.setBounds(180, 200 , 300 , 30);
 		back.add(passwordField);
 		
-		JCheckBox check = new JCheckBox("Recordarme");
+		JCheckBox check = new JCheckBox("Remember me");
 		check.setFont(new Font ("Calibri" , Font.BOLD , 15));
-		check.setBounds(15,180, 140, 30);
+		check.setBounds(400,240, 140, 30);
+		check.setOpaque(false);
 		check.setBackground(Color.darkGray);
 		check.setForeground(Color.white);
 		back.add(check);
 			
-		JLabel forgotP = new JLabel ("¿Olvidó su constraseña?" , 4);
+		/*JLabel forgotP = new JLabel ("¿Olvidó su constraseña?" , 4);
 		forgotP.setBounds(80,150,300,70);
 		forgotP.setForeground(Color.white);
 		forgotP.setFont(new Font("Calibri", Font.BOLD , 15));
-		back.add(forgotP);
+		back.add(forgotP);*/
 		
-		JButton btn = new JButton ("Acceder");
-		btn.setBounds(120,230, 150,60);
-		btn.setBackground(Color.green);
+		JButton btn = new JButton ("Login");
+		btn.setBounds(250,280, 150,60);
+		btn.setFont(new Font("Bookman Old Style" , Font.BOLD , 20));
+		btn.setBackground(Color.yellow);
 		back.add(btn);
+		
+		
+		JLabel noAccount = new JLabel ("¿Don't have an account?");
+		noAccount.setBounds(330, 400, 300, 150);
+		noAccount.setForeground(Color.white);
+		noAccount.setFont(new Font("Bookman Old Style" , Font.BOLD , 10));
+		login.add(noAccount);
+		
+		JButton signUp = new JButton ("Sign Up");
+		signUp.setBounds(320,500, 150,50);
+		signUp.setFont(new Font("Bookman Old Style" , Font.BOLD , 20));
+		signUp.setBackground(Color.yellow);
+		login.add(signUp);
 		
 		this.add(login);
 		
@@ -317,8 +344,8 @@ public class Ventana extends JFrame {
 		
 	}
 	
-	
-	public void calculadora() {
+		public void calculadora() {
+
 		
 		JPanel calculadoraPanel = new JPanel() ;
 		calculadoraPanel.setSize(this.getWidth(), this.getHeight());
@@ -435,8 +462,6 @@ public class Ventana extends JFrame {
 		calculadoraPanel.add(restaBtn);
 		
 		
-		///////////
-		
 		JButton ceroBtn = new JButton ("0");
 		ceroBtn.setBounds(20, 330, 70, 40);
 		ceroBtn.setBackground(Color.darkGray);
@@ -470,6 +495,8 @@ public class Ventana extends JFrame {
 		this.add(calculadoraPanel);
 		
 	}
+		
+	
 }
 		
 		
