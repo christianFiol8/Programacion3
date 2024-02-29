@@ -1,7 +1,10 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.BoxLayout;
@@ -48,7 +51,9 @@ public class Ventana extends JFrame {
 		//this.registro();
 		//this.admin();
 		//this.tareaCalculadora();
-		this.calculadora();
+		//this.calculadora();
+		this.calculoInteres();	
+		
 		
 		this.repaint();
 		this.validate();
@@ -553,6 +558,114 @@ public class Ventana extends JFrame {
 		
 		
 		
+		this.add(panel);
+		
+	}
+	
+	
+	public void calculoInteres() {
+		
+		this.setSize(650,550);
+		
+		//Primer panel null
+		
+		JPanel panel = new JPanel() ;
+		panel.setSize(this.getWidth(), this.getHeight());
+		//panel.setBackground(Color.decode("#18A2A4"));
+		panel.setBackground(Color.white);
+		panel.setLayout(null);
+		
+				
+		JLabel titulo = new JLabel ("Interés");
+		titulo.setBounds(80,10,150,40);
+		titulo.setForeground(Color.red);
+		titulo.setFont(new Font("Bookman Old Style" , Font.BOLD ,30));
+		panel.add(titulo);
+		
+		JPanel verde = new JPanel ();
+		verde.setBounds(80,80, 460, 200);
+		verde.setBackground(Color.decode("#66DF57"));
+		verde.setLayout(new BorderLayout());
+		panel.add(verde);
+		
+		JLabel calcular = new JLabel ("Calcular Interés");
+		calcular.setFont(new Font("Bookman Old Style" , Font.BOLD ,20));
+		calcular.setForeground(Color.black);
+		verde.add(calcular , BorderLayout.NORTH);
+		
+		//panel que se pone en el centro del BorderLayout y gridlayout para poner las etiquetas
+		
+		JPanel info = new JPanel ();
+		info.setBackground(Color.decode("#66DF57"));
+		info.setLayout(new GridLayout(3,2,1,20));
+		verde.add(info, BorderLayout.CENTER);
+		
+		JLabel capital = new JLabel ("Capital:");
+		capital.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		info.add(capital);
+		JTextField capitalEspacio = new JTextField();
+		info.add(capitalEspacio);
+		
+		JLabel tiempo = new JLabel ("Tiempo:");
+		tiempo.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		info.add(tiempo);
+		JTextField tiempoEspacio = new JTextField();
+		info.add(tiempoEspacio);
+		
+		JLabel tasa = new JLabel ("Tasa:");
+		tasa.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		info.add(tasa);
+		JTextField tasaEspacio = new JTextField();
+		info.add(tasaEspacio);
+		
+		// Se agregan los botones con un flowlayout en la parte sur del BorderLayout
+		
+		JPanel botones = new JPanel ();
+		botones.setLayout(new FlowLayout());
+		botones.setOpaque(false);
+		verde.add(botones , BorderLayout.SOUTH);
+		
+		JButton btn1 = new JButton ("Calcular");
+		btn1.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		btn1.setBackground(Color.black);
+		btn1.setForeground(Color.white);
+		
+		JButton btn2 = new JButton ("Cancelar");
+		btn2.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		btn2.setForeground(Color.white);
+		btn2.setBackground(Color.black);
+		
+		botones.add(btn1);
+		botones.add(btn2);
+		
+
+		JPanel rojo = new JPanel ();
+		rojo.setBounds(80,300, 460, 150);
+		rojo.setBackground(Color.decode("#DF6757"));
+		rojo.setLayout(new BorderLayout());
+		panel.add(rojo);
+		
+		JPanel resultado = new JPanel ();
+		resultado.setBackground(Color.decode("#DF6757"));
+		resultado.setLayout(new GridLayout(2,2,1,70));
+		rojo.add(resultado,BorderLayout.CENTER);
+		
+		JLabel interes = new JLabel ("Interés:");
+		interes.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		resultado.add(interes);
+		JTextField interesEspacio = new JTextField();
+		resultado.add(interesEspacio);
+		
+		JLabel monto = new JLabel ("Monto:");
+		monto.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		resultado.add(monto);
+		JTextField montoEspacio = new JTextField();
+		resultado.add(montoEspacio);
+		
+		
+		
+		
+
 		this.add(panel);
 		
 	}
