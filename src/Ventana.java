@@ -59,43 +59,104 @@ public class Ventana extends JFrame {
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-		//asigna el color
-		g2d.setColor(Color.red);
-		g2d.fillRect(50, 50, 200, 100);
+		/*g2d.fillRect(50, 50, 200, 100);
 		g2d.clearRect(100, 100, 100, 100);
-		
 		g2d.fillArc(300, 300, 100, 100, 0, 360);
 		g2d.setColor(Color.black);
 		g2d.drawLine(0, 0, 500, 500);
-		
 		g2d.drawOval(400, 400, 50, 80);
 		g2d.fillOval(350, 400, 50, 80);
-		
 		int xPoints[] = {100,250,300};
 		int yPoints[] = {100,200,300};
-		
-		//g2d.drawPolyline(xPoints, yPoints,3);
-		
 		g2d.fillPolygon(xPoints, yPoints,3);
-		
-		
 		g2d.setFont(new Font("Agency FB" , Font.BOLD , 20));
 		g2d.drawString("Hola", 250, 100);
-		
 		g2d.setStroke(new BasicStroke(5));
 		g2d.drawRoundRect(400, 150, 200, 150, 10, 10);
-		
-		
 		try {
-			
 			BufferedImage image = ImageIO.read(new File("src/rain.png"));
 			g2d.drawImage(image,0,0,null);
-			
 		}catch(IOException e) {
 			e.printStackTrace();
+		}*/
+		
+		
+		//El fondo y el piso
+		g2d.setColor(Color.decode("#49BDE3"));
+		g2d.fillRect(1, 1, 800, 500);
+		g2d.setColor(Color.decode("#11531B"));
+		g2d.fillRect(2,440, 800, 50);
+		g2d.setColor(Color.decode("#1E772B"));
+		g2d.fillRect(2,450, 800, 50);
+		g2d.setColor(Color.decode("#BFA341"));
+		g2d.fillRect(2,500, 800, 50);
+		g2d.setColor(Color.decode("#715B0D"));
+		g2d.fillRect(2,545, 800, 50);
+		g2d.setColor(Color.decode("#D0AD31"));
+		g2d.fillRect(2,330, 800, 80);
+		
+		//Cada vuelta multiplica i * 75 para saber cuanto sumar a la posicion inicial y saber la posicion inicial de la sig valla
+		for(int i=0; i<10; i++) {
+			g2d.setColor(Color.decode("#F9CE36"));
+			g2d.fillRect(40 + i * 75,290, 50, 150);
 		}
 		
-		//g2d.drawLine(30, 70, 770, 70);
+		//Rectangulos de casa
+		g2d.setColor(Color.decode("#686763"));
+		g2d.fillRect(200,410, 385, 30);
+		
+		g2d.setColor(Color.decode("#E2C861"));
+		g2d.fillRect(220,200, 345, 210);
+		
+		//Chimenea
+		g2d.setColor(Color.decode("#5B5958"));
+		g2d.fillRect(500,100, 50, 80);
+		
+		g2d.setColor(Color.decode("#424242"));
+		g2d.fillRect(490,70, 70, 30);
+			
+		//mismo for de las vallas, pero se aumenta y
+		
+		for(int i=0; i<5 ;i++) {
+			
+			g2d.setColor(Color.decode("#4D3E04"));
+			g2d.setStroke(new BasicStroke(5));
+			g2d.drawLine(220,230 + i*40,565, 230+ i*40);
+		
+		}
+		
+		
+		//Puerta
+		g2d.setColor(Color.decode("#4D3E04"));
+		g2d.setStroke(new BasicStroke(9));
+		g2d.drawRoundRect(250, 260,90, 150, 0, 90);
+		g2d.setColor(Color.decode("#786108"));
+		g2d.fillRoundRect(250, 260,90, 150, 0, 90);
+		
+		//Techo
+		int xPoints[] = {150,350,650};
+		int yPoints[] = {200,50,200};
+		g2d.setColor(Color.decode("#E32623"));
+		g2d.fillPolygon(xPoints, yPoints,3);
+		
+		//Ventana
+		g2d.setStroke(new BasicStroke(9));
+		g2d.drawRoundRect(430, 250,100, 70, 0, 90);
+		g2d.setColor(Color.decode("#FBF7F7"));
+		g2d.fillRoundRect(430, 250,100, 70, 0, 90);
+		g2d.setColor(Color.decode("#686763"));
+		g2d.fillRect(410,325, 140, 20);
+		g2d.setColor(Color.decode("#E32222"));
+		g2d.setStroke(new BasicStroke(5));
+		g2d.drawLine(480, 320, 480, 250);
+		
+		g2d.setColor(Color.decode("#E32222"));
+		g2d.setStroke(new BasicStroke(5));
+		g2d.drawLine(430, 290, 530, 290);
+		
+		
+		
+		
 	}
 	
 	public void iniciarComponentes() {
