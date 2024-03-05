@@ -195,7 +195,7 @@ public class Builder {
 		panel_6.add(scrollPane);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(10, 56, 96, 36);
+		textField_4.setBounds(10, 51, 96, 59);
 		panel_6.add(textField_4);
 		textField_4.setColumns(10);
 		

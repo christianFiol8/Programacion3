@@ -1,12 +1,20 @@
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -45,6 +53,51 @@ public class Ventana extends JFrame {
 		
 	}
 	
+	@Override
+	public void paint (Graphics g) {
+		super.paint(g);
+		
+		Graphics2D g2d = (Graphics2D) g;
+		
+		//asigna el color
+		g2d.setColor(Color.red);
+		g2d.fillRect(50, 50, 200, 100);
+		g2d.clearRect(100, 100, 100, 100);
+		
+		g2d.fillArc(300, 300, 100, 100, 0, 360);
+		g2d.setColor(Color.black);
+		g2d.drawLine(0, 0, 500, 500);
+		
+		g2d.drawOval(400, 400, 50, 80);
+		g2d.fillOval(350, 400, 50, 80);
+		
+		int xPoints[] = {100,250,300};
+		int yPoints[] = {100,200,300};
+		
+		//g2d.drawPolyline(xPoints, yPoints,3);
+		
+		g2d.fillPolygon(xPoints, yPoints,3);
+		
+		
+		g2d.setFont(new Font("Agency FB" , Font.BOLD , 20));
+		g2d.drawString("Hola", 250, 100);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.drawRoundRect(400, 150, 200, 150, 10, 10);
+		
+		
+		try {
+			
+			BufferedImage image = ImageIO.read(new File("src/rain.png"));
+			g2d.drawImage(image,0,0,null);
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		//g2d.drawLine(30, 70, 770, 70);
+	}
+	
 	public void iniciarComponentes() {
 		
 		//this.login();		
@@ -52,8 +105,8 @@ public class Ventana extends JFrame {
 		//this.admin();
 		//this.tareaCalculadora();
 		//this.calculadora();
-		this.calculoInteres();	
-		
+		//this.calculoInteres();
+				
 		
 		this.repaint();
 		this.validate();
