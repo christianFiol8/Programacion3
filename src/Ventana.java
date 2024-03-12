@@ -10,11 +10,14 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -42,7 +45,7 @@ public class Ventana extends JFrame {
 	public Ventana() {
 		
 		this.setTitle("Mi ventana");
-		this.setSize(800,600);
+		this.setSize(800,700);
 		this.setLocation(300, 50);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,223 +56,12 @@ public class Ventana extends JFrame {
 		
 	}
 	
-	@Override
-	public void paint (Graphics g) {
-		super.paint(g);
-		
-		
-		Graphics2D g2d = (Graphics2D) g;
+	
 
-		g2d.setColor(Color.decode("#2092CB"));
-		g2d.fillRect(1, 1,800, 500);
-		
-		
-		//Nubes
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(200,400, 150, 30,50,50);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(550,180, 150, 30,50,50);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(630,130, 130, 30,50,50);
-		
-		//Tubos grises
-		g2d.setColor(Color.decode("#BAD9D8"));
-		g2d.drawRoundRect(80, 150, 140, 400, 150, 150);
-		g2d.setColor(Color.decode("#BAD9D8"));
-		g2d.fillRoundRect(80, 150, 140, 400,150,150);
-		
-		g2d.setColor(Color.decode("#BAD9D8"));
-		g2d.drawRoundRect(350, 150, 140, 400, 150, 150);
-		
-		g2d.setColor(Color.decode("#BAD9D8"));
-		g2d.fillRoundRect(350, 150, 140, 400 ,150,150);
-		
-		g2d.setColor(Color.decode("#BAD9D8"));
-		g2d.drawRoundRect(470, 50, 140, 400, 150, 150);
-		g2d.setColor(Color.decode("#BAD9D8"));
-		g2d.fillRoundRect(470, 50, 140,400 ,150,150);
-		
-		//Nube
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(0, 250, 150, 40,50,50);
-				
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(150, 180, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(430, 180, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(380, 250, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(430, 180, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(380, 250, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(150, 300, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(560, 90, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(500, 150, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(220,300, 150, 30,50,50);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(280,360, 150, 30,50,50);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(280,440, 150, 30,50,50);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(380,400, 150, 30,50,50);
-		
-		//Tubos azules
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#107089"));
-		g2d.drawRoundRect(0, 350, 140, 200, 100, 100);
-		g2d.setColor(Color.decode("#3E9FB9"));
-		g2d.fillRoundRect(0, 350, 140,200,100,100);
-	
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#107089"));
-		g2d.drawRoundRect(350, 350, 190, 200, 150, 150);
-		g2d.setColor(Color.decode("#3E9FB9"));
-		g2d.fillRoundRect(350, 350, 190,200,150,150);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#107089"));
-		g2d.drawRoundRect(470, 200, 180, 400, 150, 150);
-		g2d.setColor(Color.decode("#3E9FB9"));
-		g2d.fillRoundRect(470, 200, 180,400,150,150);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(500, 250, 20, 40,20,20);
-		
-		g2d.setColor(Color.decode("#FCFCFC"));
-		g2d.fillRoundRect(600, 400, 20, 40,20,20);
-		
-		//Tuberias moradas
-		
-		//Primera
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(370,400, 70, 100, 0, 10);
-		
-		g2d.setColor(Color.decode("#7D19CB"));
-		g2d.fillRoundRect(370,400, 70, 100, 0, 10);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(360,370, 90, 40, 10, 10);
-		
-		g2d.setColor(Color.decode("#7D19CB"));
-		g2d.fillRoundRect(360,370, 90, 40, 10, 10);
-		//Segunda
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(740,430, 60, 50, 0, 10);
-		
-		g2d.setColor(Color.decode("#7D19CB"));
-		g2d.fillRoundRect(740,430, 60, 50, 0, 10);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(735,400, 65, 30, 10, 10);
-		
-		g2d.setColor(Color.decode("#7D19CB"));
-		g2d.fillRoundRect(735,400, 65, 30, 10, 10);
-		
-		
-		//Cuadritos
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(735, 310, 60, 40, 20, 20);
-		g2d.setColor(Color.decode("#E6E618"));
-		g2d.fillRoundRect(735, 310, 60, 40, 20, 20);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(690, 310, 40, 40, 20, 20);
-		g2d.setColor(Color.decode("#CBCBCB"));
-		g2d.fillRoundRect(690, 310, 40, 40, 20, 20);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(690, 355, 40, 40, 20, 20);
-		g2d.setColor(Color.decode("#CBCBCB"));
-		g2d.fillRoundRect(690, 355, 40, 40, 20, 20);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(690, 400, 40, 40, 20, 20);
-		g2d.setColor(Color.decode("#CBCBCB"));
-		g2d.fillRoundRect(690, 400, 40, 40, 20, 20);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawRoundRect(690, 445, 40, 40, 20, 20);
-		g2d.setColor(Color.decode("#CBCBCB"));
-		g2d.fillRoundRect(690, 445, 40, 40, 20, 20);
-		
-		//Lineas
-		
-		g2d.setStroke(new BasicStroke(7));
-		g2d.setColor(Color.decode("#F9F9F9"));
-		g2d.drawLine(385, 373, 385, 405);
-		
-		g2d.setStroke(new BasicStroke(7));
-		g2d.setColor(Color.decode("#F9F9F9"));
-		g2d.drawLine(395, 415, 395, 475);
-		
-		g2d.setStroke(new BasicStroke(7));
-		g2d.setColor(Color.decode("#F9F9F9"));
-		g2d.drawLine(756, 404, 756, 425);
-		
-		g2d.setStroke(new BasicStroke(7));
-		g2d.setColor(Color.decode("#F9F9F9"));
-		g2d.drawLine(765, 435, 765, 550);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawLine(756, 320, 756, 330);
-		
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#000000"));
-		g2d.drawLine(776, 320, 776, 330);
-		
-		//Mario
-		
-		
-		
-		
-		//Piso
-		g2d.setColor(Color.decode("#F1C373"));
-		g2d.fillRect(2, 500, 800, 100);
-		
-		g2d.setColor(Color.decode("#000000"));
-		g2d.setStroke(new BasicStroke(6));
-		g2d.drawRoundRect(2, 480, 800,20, 10, 10);
-		g2d.setColor(Color.decode("#30AE1A"));
-		g2d.fillRect(2, 480, 800,20);
-		
-		
-	}	
-	
-	
-	
 	public void iniciarComponentes() {
 		
 		//this.login();		
-		//this.registro();
+		this.registro();
 		//this.admin();
 		//this.tareaCalculadora();
 		//this.calculadora();
@@ -283,10 +75,12 @@ public class Ventana extends JFrame {
 	
 	
 	public void registro() {
+		
+		
 		JPanel registro = new JPanel() ;
-		registro.setSize(this.getWidth()/2, this.getHeight());
+		registro.setSize(this.getWidth(), this.getHeight());
 		registro.setBackground(Color.magenta);
-		registro.setLocation(500,0);
+		registro.setLocation(0,0);
 		registro.setLayout(null);
 		
 		
@@ -381,6 +175,43 @@ public class Ventana extends JFrame {
 		JButton rgs_btn = new JButton ("Crear Cuenta");
 		rgs_btn.setBounds(50,530, 400,70);
 		rgs_btn.setBackground(Color.green);
+		
+		rgs_btn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				String usr = user.getText();
+				String bio = bio_tex.getText();
+				
+				if(usr.length()<=0) {
+			
+					user.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}
+				else {
+					user.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(bio.length()<=0) {
+					bio_tex.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}
+				else {
+					bio_tex.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(!accept_radio.isSelected()) {
+					accept_radio.setBorderPainted(true);
+					accept_radio.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}
+				else {
+					accept_radio.setBorderPainted(true);
+					accept_radio.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+			
+			}});
+		
 		registro.add(rgs_btn);
 		
 	
@@ -431,6 +262,7 @@ public class Ventana extends JFrame {
 		
 		JTextField user = new JTextField();
 		user.setBounds(180,120, 300, 30);
+		//user.setBorder(BorderFactory.createLineBorder(Color.red,2));
 		back.add(user);
 		
 		/*JLabel logo = new JLabel ();
@@ -485,6 +317,44 @@ public class Ventana extends JFrame {
 		signUp.setBounds(320,500, 150,50);
 		signUp.setFont(new Font("Bookman Old Style" , Font.BOLD , 20));
 		signUp.setBackground(Color.yellow);
+		
+		
+		
+		signUp.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				String usr=user.getText().toString();
+				String pwd= new String(passwordField.getPassword());
+						
+				if(usr.length()<=0) {
+					user.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}
+				else {
+					user.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(pwd.length()<=0) {
+					passwordField.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}
+				else {
+					passwordField.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(usr.equals("Chrisitian")) {
+					if(pwd.equals("12345")) {
+						System.out.println("Bienvenido");
+					}
+				}else {
+					System.out.println("Usuario no encontrado");
+				}
+				
+				
+				
+			}});	
+		
 		login.add(signUp);
 		
 		this.add(login);
