@@ -1012,10 +1012,23 @@ public class Ventana extends JFrame {
 				otroBtn.setBounds(x,y,w,h);
 				otroBtn.setOpaque(true);
 				otroBtn.setBackground(new Color(r,g,b));
+				
+				otroBtn.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						
+						String contenido= otroBtn.getText();
+						JOptionPane.showMessageDialog(null,contenido);
+						
+					}});
+				
 				btnPanel.add(otroBtn);
 				
+		
 				
-							
+				
 				getContentPane().repaint();
 				getContentPane().revalidate();
 				
