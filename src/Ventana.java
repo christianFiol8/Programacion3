@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -29,6 +30,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -56,17 +58,227 @@ public class Ventana extends JFrame {
 		
 	}
 	
+	/*@Override
+	public void paint (Graphics g) {
+		super.paint(g);
+		
+		
+		Graphics2D g2d = (Graphics2D) g;
+
+		g2d.setColor(Color.decode("#2092CB"));
+		g2d.fillRect(1, 1,800, 500);
+		
+		
+		//Nubes
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(200,400, 150, 30,50,50);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(550,180, 150, 30,50,50);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(630,130, 130, 30,50,50);
+		
+		//Tubos grises
+		g2d.setColor(Color.decode("#BAD9D8"));
+		g2d.drawRoundRect(80, 150, 140, 400, 150, 150);
+		g2d.setColor(Color.decode("#BAD9D8"));
+		g2d.fillRoundRect(80, 150, 140, 400,150,150);
+		
+		g2d.setColor(Color.decode("#BAD9D8"));
+		g2d.drawRoundRect(350, 150, 140, 400, 150, 150);
+		
+		g2d.setColor(Color.decode("#BAD9D8"));
+		g2d.fillRoundRect(350, 150, 140, 400 ,150,150);
+		
+		g2d.setColor(Color.decode("#BAD9D8"));
+		g2d.drawRoundRect(470, 50, 140, 400, 150, 150);
+		g2d.setColor(Color.decode("#BAD9D8"));
+		g2d.fillRoundRect(470, 50, 140,400 ,150,150);
+		
+		//Nube
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(0, 250, 150, 40,50,50);
+				
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(150, 180, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(430, 180, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(380, 250, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(430, 180, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(380, 250, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(150, 300, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(560, 90, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(500, 150, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(220,300, 150, 30,50,50);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(280,360, 150, 30,50,50);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(280,440, 150, 30,50,50);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(380,400, 150, 30,50,50);
+		
+		//Tubos azules
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#107089"));
+		g2d.drawRoundRect(0, 350, 140, 200, 100, 100);
+		g2d.setColor(Color.decode("#3E9FB9"));
+		g2d.fillRoundRect(0, 350, 140,200,100,100);
+	
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#107089"));
+		g2d.drawRoundRect(350, 350, 190, 200, 150, 150);
+		g2d.setColor(Color.decode("#3E9FB9"));
+		g2d.fillRoundRect(350, 350, 190,200,150,150);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#107089"));
+		g2d.drawRoundRect(470, 200, 180, 400, 150, 150);
+		g2d.setColor(Color.decode("#3E9FB9"));
+		g2d.fillRoundRect(470, 200, 180,400,150,150);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(500, 250, 20, 40,20,20);
+		
+		g2d.setColor(Color.decode("#FCFCFC"));
+		g2d.fillRoundRect(600, 400, 20, 40,20,20);
+		
+		//Tuberias moradas
+		
+		//Primera
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(370,400, 70, 100, 0, 10);
+		
+		g2d.setColor(Color.decode("#7D19CB"));
+		g2d.fillRoundRect(370,400, 70, 100, 0, 10);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(360,370, 90, 40, 10, 10);
+		
+		g2d.setColor(Color.decode("#7D19CB"));
+		g2d.fillRoundRect(360,370, 90, 40, 10, 10);
+		//Segunda
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(740,430, 60, 50, 0, 10);
+		
+		g2d.setColor(Color.decode("#7D19CB"));
+		g2d.fillRoundRect(740,430, 60, 50, 0, 10);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(735,400, 65, 30, 10, 10);
+		
+		g2d.setColor(Color.decode("#7D19CB"));
+		g2d.fillRoundRect(735,400, 65, 30, 10, 10);
+		
+		
+		//Cuadritos
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(735, 310, 60, 40, 20, 20);
+		g2d.setColor(Color.decode("#E6E618"));
+		g2d.fillRoundRect(735, 310, 60, 40, 20, 20);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(690, 310, 40, 40, 20, 20);
+		g2d.setColor(Color.decode("#CBCBCB"));
+		g2d.fillRoundRect(690, 310, 40, 40, 20, 20);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(690, 355, 40, 40, 20, 20);
+		g2d.setColor(Color.decode("#CBCBCB"));
+		g2d.fillRoundRect(690, 355, 40, 40, 20, 20);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(690, 400, 40, 40, 20, 20);
+		g2d.setColor(Color.decode("#CBCBCB"));
+		g2d.fillRoundRect(690, 400, 40, 40, 20, 20);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawRoundRect(690, 445, 40, 40, 20, 20);
+		g2d.setColor(Color.decode("#CBCBCB"));
+		g2d.fillRoundRect(690, 445, 40, 40, 20, 20);
+		
+		//Lineas
+		
+		g2d.setStroke(new BasicStroke(7));
+		g2d.setColor(Color.decode("#F9F9F9"));
+		g2d.drawLine(385, 373, 385, 405);
+		
+		g2d.setStroke(new BasicStroke(7));
+		g2d.setColor(Color.decode("#F9F9F9"));
+		g2d.drawLine(395, 415, 395, 475);
+		
+		g2d.setStroke(new BasicStroke(7));
+		g2d.setColor(Color.decode("#F9F9F9"));
+		g2d.drawLine(756, 404, 756, 425);
+		
+		g2d.setStroke(new BasicStroke(7));
+		g2d.setColor(Color.decode("#F9F9F9"));
+		g2d.drawLine(765, 435, 765, 550);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawLine(756, 320, 756, 330);
+		
+		g2d.setStroke(new BasicStroke(5));
+		g2d.setColor(Color.decode("#000000"));
+		g2d.drawLine(776, 320, 776, 330);
+		
+		//Mario
+		
+		
+		
+		
+		//Piso
+		g2d.setColor(Color.decode("#F1C373"));
+		g2d.fillRect(2, 500, 800, 100);
+		
+		g2d.setColor(Color.decode("#000000"));
+		g2d.setStroke(new BasicStroke(6));
+		g2d.drawRoundRect(2, 480, 800,20, 10, 10);
+		g2d.setColor(Color.decode("#30AE1A"));
+		g2d.fillRect(2, 480, 800,20);
+	}*/
+
+	
 	
 
 	public void iniciarComponentes() {
 		
 		//this.login();		
-		this.registro();
+		//this.registro();
 		//this.admin();
 		//this.tareaCalculadora();
 		//this.calculadora();
 		//this.calculoInteres();
-				
+		this.botones();
 		
 		this.repaint();
 		this.validate();
@@ -459,6 +671,7 @@ public class Ventana extends JFrame {
 		resultadoBtn.setBounds(20, 30, 350, 40);
 		resultadoBtn.setBackground(Color.white);
 		resultadoBtn.setOpaque(true);
+		
 		calculadoraPanel.add(resultadoBtn);
 		
 		JButton clearBtn = new JButton("CE");
@@ -466,6 +679,9 @@ public class Ventana extends JFrame {
 		clearBtn.setBackground(Color.darkGray);
 		clearBtn.setForeground(Color.white);
 		clearBtn.setOpaque(true);
+		
+		
+		
 		calculadoraPanel.add(clearBtn);
 		
 		JButton borrarBtn = new JButton("Borrar");
@@ -480,6 +696,7 @@ public class Ventana extends JFrame {
 		sieteBtn.setBackground(Color.darkGray);
 		sieteBtn.setForeground(Color.white);
 		sieteBtn.setOpaque(true);
+		
 		calculadoraPanel.add(sieteBtn);
 		
 		JButton ochoBtn = new JButton("8");
@@ -758,6 +975,58 @@ public class Ventana extends JFrame {
 		
 
 		this.add(panel);
+		
+	}
+	
+	public void botones() {
+		
+		this.setSize(500,750);
+		
+		JPanel btnPanel = new JPanel() ;
+		btnPanel.setSize(this.getWidth(), this.getHeight());
+		//panel.setBackground(Color.decode("#18A2A4"));
+		btnPanel.setBackground(Color.decode("#84DF44"));
+		btnPanel.setLayout(null);
+		
+		JButton superBtn = new JButton ("Click Me");
+		superBtn.setBounds(50,400, 400,70);
+		superBtn.setBackground(Color.white);
+		
+		superBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int x= (int)Math.floor(Math.random()*450+1);
+				int y= (int)Math.floor(Math.random()*650+1);
+				
+				int w= (int)Math.floor(Math.random()*120+1);
+				int h= (int)Math.floor(Math.random()*120+1);
+				
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+				
+				JButton otroBtn = new JButton (r+","+g+","+b);
+				otroBtn.setBounds(x,y,w,h);
+				otroBtn.setOpaque(true);
+				otroBtn.setBackground(new Color(r,g,b));
+				btnPanel.add(otroBtn);
+				
+				
+							
+				getContentPane().repaint();
+				getContentPane().revalidate();
+				
+			}});
+		
+		this.add(superBtn);
+		
+		
+		
+		
+		this.add(btnPanel);
 		
 	}
 		
