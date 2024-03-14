@@ -12,6 +12,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +41,9 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Ventana extends JFrame {
+public class Ventana extends JFrame{
+	
+	
 	
 	
 	//Constructor que define atributos basicos de la ventana
@@ -978,9 +982,10 @@ public class Ventana extends JFrame {
 		
 	}
 	
-	public void botones() {
+	public void botones  () {
 		
 		this.setSize(500,750);
+		this.setLocationRelativeTo(null);
 		
 		JPanel btnPanel = new JPanel() ;
 		btnPanel.setSize(this.getWidth(), this.getHeight());
@@ -1026,7 +1031,55 @@ public class Ventana extends JFrame {
 				
 				btnPanel.add(otroBtn);
 				
-		
+				btnPanel.addMouseListener(new MouseListener() {
+
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mousePressed(MouseEvent e) {
+						// TODO Auto-generated method stub
+						int x= e.getX();
+						int y=e.getY();
+						
+						int w= (int)Math.floor(Math.random()*120+1);
+						int h= (int)Math.floor(Math.random()*120+1);
+						
+						Random rand = new Random();
+						float r = rand.nextFloat();
+						float g = rand.nextFloat();
+						float b = rand.nextFloat();
+						
+						JButton btnClick = new JButton (r+","+g+","+b);
+						btnClick.setSize(w,h);
+						btnClick.setLocation(x,y);
+						btnClick.setOpaque(true);
+						btnClick.setBackground(new Color(r,g,b));
+					
+						btnPanel.add(btnClick);
+						
+					}
+
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						// TODO Auto-generated method stub
+					
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}});
 				
 				
 				getContentPane().repaint();
@@ -1035,14 +1088,10 @@ public class Ventana extends JFrame {
 			}});
 		
 		this.add(superBtn);
-		
-		
-		
-		
+	
 		this.add(btnPanel);
 		
 	}
-		
 	
 }
 		
