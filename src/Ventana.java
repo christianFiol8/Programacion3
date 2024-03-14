@@ -1064,6 +1064,16 @@ public class Ventana extends JFrame{
 						btnClick.setLocation(x,y);
 						btnClick.setOpaque(true);
 						btnClick.setBackground(new Color(r,g,b));
+						
+						btnClick.addActionListener(new ActionListener() {
+
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								// TODO Auto-generated method stub
+								
+								String contenido = btnClick.getText();
+								JOptionPane.showMessageDialog(null, contenido);
+							}});
 					
 						btnPanel.add(btnClick);
 						
@@ -1078,6 +1088,14 @@ public class Ventana extends JFrame{
 					@Override
 					public void mouseEntered(MouseEvent e) {
 						// TODO Auto-generated method stub
+						
+						Random rand = new Random();
+						
+						int nextRand = rand.nextInt(0xffffff + 1);
+						
+						String colorCode = String.format("#%06x", nextRand);
+						
+						btnPanel.setBackground(Color.decode(colorCode));
 						
 					}
 
