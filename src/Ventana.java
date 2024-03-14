@@ -1023,9 +1023,15 @@ public class Ventana extends JFrame{
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
+						JButton yo =((JButton)e.getSource());	
 						
-						String contenido= otroBtn.getText();
-						JOptionPane.showMessageDialog(null,contenido);
+						btnPanel.remove(yo);
+						
+						getContentPane().repaint();
+						getContentPane().revalidate();
+						
+						//String contenido= otroBtn.getText();
+						//JOptionPane.showMessageDialog(null,contenido);
 						
 					}});
 				
