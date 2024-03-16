@@ -1,6 +1,7 @@
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -12,6 +13,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -41,11 +44,11 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Ventana extends JFrame{
+public class Ventana extends JFrame implements KeyListener,MouseListener{
 	
 	
 	
-	
+	JPanel btnPanel;
 	//Constructor que define atributos basicos de la ventana
 	
 	public Ventana() {
@@ -59,6 +62,9 @@ public class Ventana extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setLayout(null);
 		this.iniciarComponentes();
+		
+		this.addKeyListener(this);
+		this.addMouseListener(this);
 		
 	}
 	
@@ -987,7 +993,7 @@ public class Ventana extends JFrame{
 		this.setSize(500,750);
 		this.setLocationRelativeTo(null);
 		
-		JPanel btnPanel = new JPanel() ;
+		btnPanel = new JPanel() ;
 		btnPanel.setSize(this.getWidth(), this.getHeight());
 		//panel.setBackground(Color.decode("#18A2A4"));
 		btnPanel.setBackground(Color.decode("#84DF44"));
@@ -996,6 +1002,8 @@ public class Ventana extends JFrame{
 		JButton superBtn = new JButton ("Click Me");
 		superBtn.setBounds(50,400, 400,70);
 		superBtn.setBackground(Color.white);
+		
+		superBtn.setFocusable(false);
 		
 		superBtn.addActionListener(new ActionListener() {
 
@@ -1034,77 +1042,10 @@ public class Ventana extends JFrame{
 						//JOptionPane.showMessageDialog(null,contenido);
 						
 					}});
-				
+			
 				btnPanel.add(otroBtn);
 				
-				btnPanel.addMouseListener(new MouseListener() {
-
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					@Override
-					public void mousePressed(MouseEvent e) {
-						// TODO Auto-generated method stub
-						int x= e.getX();
-						int y=e.getY();
-						
-						int w= (int)Math.floor(Math.random()*120+1);
-						int h= (int)Math.floor(Math.random()*120+1);
-						
-						Random rand = new Random();
-						float r = rand.nextFloat();
-						float g = rand.nextFloat();
-						float b = rand.nextFloat();
-						
-						JButton btnClick = new JButton (r+","+g+","+b);
-						btnClick.setSize(w,h);
-						btnClick.setLocation(x,y);
-						btnClick.setOpaque(true);
-						btnClick.setBackground(new Color(r,g,b));
-						
-						btnClick.addActionListener(new ActionListener() {
-
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								// TODO Auto-generated method stub
-								
-								String contenido = btnClick.getText();
-								JOptionPane.showMessageDialog(null, contenido);
-							}});
-					
-						btnPanel.add(btnClick);
-						
-					}
-
-					@Override
-					public void mouseReleased(MouseEvent e) {
-						// TODO Auto-generated method stub
-					
-					}
-
-					@Override
-					public void mouseEntered(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-						Random rand = new Random();
-						
-						int nextRand = rand.nextInt(0xffffff + 1);
-						
-						String colorCode = String.format("#%06x", nextRand);
-						
-						btnPanel.setBackground(Color.decode(colorCode));
-						
-					}
-
-					@Override
-					public void mouseExited(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-					}});
-				
+				otroBtn.setFocusable(false);
 				
 				getContentPane().repaint();
 				getContentPane().revalidate();
@@ -1114,6 +1055,92 @@ public class Ventana extends JFrame{
 		this.add(superBtn);
 	
 		this.add(btnPanel);
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		System.out.println(e.getKeyCode());
+		if(e.getKeyCode()==8) {
+			btnPanel.removeAll();
+			getContentPane().repaint();
+		}
+			
+			
+}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		int x= e.getX();
+		int y=e.getY();
+		
+		int w= (int)Math.floor(Math.random()*120+1);
+		int h= (int)Math.floor(Math.random()*120+1);
+		
+		Random rand = new Random();
+		float r = rand.nextFloat();
+		float g = rand.nextFloat();
+		float b = rand.nextFloat();
+		
+		JButton btnClick = new JButton (r+","+g+","+b);
+		btnClick.setSize(w,h);
+		btnClick.setLocation(x,y);
+		btnClick.setOpaque(true);
+		btnClick.setBackground(new Color(r,g,b));
+		
+		btnClick.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				String contenido = btnClick.getText();
+				JOptionPane.showMessageDialog(null, contenido);
+			}});
+	
+		btnPanel.add(btnClick);
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		Random rand = new Random();
+		
+		int nextRand = rand.nextInt(0xffffff + 1);
+		
+		String colorCode = String.format("#%06x", nextRand);
+		
+		btnPanel.setBackground(Color.decode(colorCode));
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 	
