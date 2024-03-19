@@ -1067,6 +1067,8 @@ public class Ventana extends JFrame implements KeyListener,MouseListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		
+		System.out.println(e.getKeyCode());
+		
 		if(e.getKeyCode()==8) {
 			btnPanel.removeAll();
 			getContentPane().repaint();
@@ -1082,6 +1084,61 @@ public class Ventana extends JFrame implements KeyListener,MouseListener{
 				}
 			}
 		}
+	
+		
+		//Mover los botones
+		if(e.getKeyCode()==39) {
+			Component[] elementos = btnPanel.getComponents();
+			for(int i=0 ; i<elementos.length ; i++) {
+				if(elementos[i].getClass().toString().equals("class javax.swing.JButton")) {
+					
+					JButton btn = ((JButton) elementos[i]);
+					
+					btn.setLocation(btn.getX() +10, btn.getY());
+				}
+				
+		}
+			
+	}	
+		if(e.getKeyCode()==37) {
+		Component[] elementos = btnPanel.getComponents();
+		for(int i=0 ; i<elementos.length ; i++) {
+			if(elementos[i].getClass().toString().equals("class javax.swing.JButton")) {
+				
+				JButton btn = ((JButton) elementos[i]);
+				
+				btn.setLocation(btn.getX() -10, btn.getY());
+			}		
+	}
+		
+}
+		if(e.getKeyCode()==38) {
+		Component[] elementos = btnPanel.getComponents();
+		for(int i=0 ; i<elementos.length ; i++) {
+			if(elementos[i].getClass().toString().equals("class javax.swing.JButton")) {
+				
+				JButton btn = ((JButton) elementos[i]);
+				
+				btn.setLocation(btn.getX(), btn.getY()-10);
+			}
+	}	
+}		
+		if(e.getKeyCode()==40) {
+		Component[] elementos = btnPanel.getComponents();
+		for(int i=0 ; i<elementos.length ; i++) {
+			if(elementos[i].getClass().toString().equals("class javax.swing.JButton")) {
+				
+				JButton btn = ((JButton) elementos[i]);
+				
+				btn.setLocation(btn.getX(), btn.getY()+10);
+			}	
+	}
+		
+}
+		
+		
+		
+		
 			
 			
 }
