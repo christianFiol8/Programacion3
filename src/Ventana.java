@@ -1067,7 +1067,7 @@ public class Ventana extends JFrame implements KeyListener,MouseListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		
-		System.out.println(e.getKeyCode());
+		
 		
 		if(e.getKeyCode()==8) {
 			btnPanel.removeAll();
