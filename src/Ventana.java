@@ -54,7 +54,7 @@ public class Ventana extends JFrame implements KeyListener,MouseListener{
 	public Ventana() {
 		
 		this.setTitle("Mi ventana");
-		this.setSize(800,700);
+		this.setSize(600,700);
 		this.setLocation(300, 50);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,8 +63,8 @@ public class Ventana extends JFrame implements KeyListener,MouseListener{
 		this.setLayout(null);
 		this.iniciarComponentes();
 		
-		this.addKeyListener(this);
-		this.addMouseListener(this);
+		//this.addKeyListener(this);
+		//this.addMouseListener(this);
 		
 	}
 	
@@ -288,7 +288,8 @@ public class Ventana extends JFrame implements KeyListener,MouseListener{
 		//this.tareaCalculadora();
 		//this.calculadora();
 		//this.calculoInteres();
-		this.botones();
+		//this.botones();
+		this.examen();
 		
 		this.repaint();
 		this.validate();
@@ -1055,6 +1056,194 @@ public class Ventana extends JFrame implements KeyListener,MouseListener{
 		this.add(superBtn);
 	
 		this.add(btnPanel);
+		
+	}
+	
+	
+	public void examen() {
+		
+		
+		//Panel principal
+		JPanel panel = new JPanel();
+		panel.setSize(this.getWidth() , this.getHeight());
+		panel.setBackground(Color.decode("#2D91AA"));
+		panel.setLayout(null);
+		this.add(panel);
+		
+		JPanel centro = new JPanel();
+		centro.setBackground(Color.white);
+		centro.setBounds(0,100,600,550);
+		centro.setLayout(null);
+		panel.add(centro);
+		
+
+		JLabel titulo = new JLabel("Factura Java-Netbeans-ArrayList y Poo");
+		titulo.setForeground(Color.white);
+		titulo.setBounds(0,0,500,80);
+		titulo.setOpaque(false);
+		titulo.setFont(new Font("Bookman Old Style" , Font.BOLD ,20));
+		panel.add(titulo);
+		
+		
+		JLabel datos = new JLabel ("Datos del Cliente");
+		datos.setBounds(40,5,100,100);
+		datos.setForeground(Color.black);
+		datos.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(datos);
+		
+		//Documento
+		JLabel documento = new JLabel ("Documentos:");
+		documento.setBounds(50,40,100,100);
+		documento.setForeground(Color.black);
+		documento.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(documento);
+		
+		JTextField documento_text = new JTextField();
+		documento_text.setText("12345");
+		documento_text.setBounds(130, 80, 130, 20);
+		centro.add(documento_text);
+		
+		//Nombres
+		JLabel nombre = new JLabel ("Nombre:");
+		nombre.setBounds(270,40,100,100);
+		nombre.setForeground(Color.black);
+		nombre.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(nombre);
+		
+		JTextField nombre_text = new JTextField();
+		nombre_text.setText("Jhon Doe");
+		nombre_text.setBounds(330, 80, 130, 20);
+		centro.add(nombre_text);
+		
+		//Direccion
+		JLabel direccion = new JLabel ("Direccion:");
+		direccion.setBounds(50,80,100,100);
+		direccion.setForeground(Color.black);
+		direccion.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(direccion);
+		
+		JTextField direccion_text = new JTextField();
+		direccion_text.setText("Calle 1 #123");
+		direccion_text.setBounds(130, 120, 130, 20);
+		centro.add(direccion_text);
+		
+		//Telefono
+		JLabel telefono = new JLabel ("Telefono:");
+		telefono.setBounds(270,80,100,100);
+		telefono.setForeground(Color.black);
+		telefono.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(telefono);
+		
+		JTextField telefono_text = new JTextField();
+		telefono_text.setText("555 44 33");
+		telefono_text.setBounds(330, 120, 130, 20);
+		centro.add(telefono_text);
+		
+		//Factura
+		
+		JLabel datos_factura = new JLabel ("Datos de Factura");
+		datos_factura.setBounds(40,130,100,100);
+		datos_factura.setForeground(Color.black);
+		datos_factura.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(datos_factura);
+		
+		JLabel numFactura= new JLabel ("No.Factura:      1");
+		numFactura.setBounds(50,160,100,100);
+		numFactura.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(numFactura);
+		
+		JLabel fecha= new JLabel ("Fecha:             2021/50/21");
+		fecha.setBounds(280,160,200,100);
+		fecha.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(fecha);
+		
+		
+		//Botones
+		JButton add = new JButton("Añadir");
+		add.setBounds(400,250,80,20);
+		add.setBackground(Color.green);
+		centro.add(add);
+		
+		JButton eliminar = new JButton("Eliminar");
+		eliminar.setBounds(490,250,80,20);
+		eliminar.setBackground(Color.red);
+		centro.add(eliminar);
+		
+		JButton listado = new JButton("Ver listado de Facturas");
+		listado.setBounds(40,250,180,20);
+		listado.setBackground(Color.gray);
+		centro.add(listado);
+		
+		JButton finalizar = new JButton("Finalizar");
+		finalizar.setBounds(380,520,100,20);
+		finalizar.setBackground(Color.gray);
+		centro.add(finalizar);
+		
+		JButton limpiar = new JButton("Limpiar");
+		limpiar.setBounds(490,520,80,20);
+		limpiar.setBackground(Color.gray);
+		centro.add(limpiar);
+		
+		//Tabla
+		
+		String titles[]= {"Producto" , "Cantidad" , "Valor" , "Sub.Total"};
+		String tableData [][] = {
+				{"Agua" , "2" , "500" , "1000.0"},
+				{"Cereal" , "5" , "1000" , "5000.0"},
+				{"Leche" , "2" , "300" , "600.0"},
+
+		};
+		
+		JTable tablaUsuarios = new JTable (tableData, titles);
+		tablaUsuarios.setBounds(20,400,550,50);
+		panel.add(tablaUsuarios);
+		
+		
+		//Parte de abajo
+		
+		JLabel subTotal = new JLabel ("SubTotal:      6600.0");
+		subTotal.setBounds(50,330,200,100);
+		subTotal.setForeground(Color.black);
+		subTotal.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(subTotal);
+		
+		JLabel descuento = new JLabel ("%Descuento:");
+		descuento.setBounds(50,360,100,100);
+		descuento.setForeground(Color.black);
+		descuento.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(descuento);
+		
+		JTextField descuento_text = new JTextField();
+		descuento_text.setText("5");
+		descuento_text.setBounds(130,400,20,20);
+		centro.add(descuento_text);
+		
+		JCheckBox check = new JCheckBox();
+		check.setBounds(170, 400, 20, 20);
+		centro.add(check);
+		
+		JLabel valor = new JLabel ("Valor Descontado:      330.0");
+		valor.setBounds(200,360,200,100);
+		valor.setForeground(Color.black);
+		valor.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(valor);
+		
+		JLabel iva = new JLabel ("IVA 19%:      1254.0");
+		iva.setBounds(50,390,200,100);
+		iva.setForeground(Color.black);
+		iva.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(iva);
+		
+		JLabel totalFactura = new JLabel ("Total Factura:      7524.0");
+		totalFactura.setBounds(50,420,200,100);
+		totalFactura.setForeground(Color.black);
+		totalFactura.setFont(new Font("Bookman Old Style" , Font.BOLD ,10));
+		centro.add(totalFactura);
+		
+		
+		
+		
+		
 		
 	}
 
