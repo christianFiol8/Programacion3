@@ -10,11 +10,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
 
 public class Tictactoe {
 
 	private JFrame frame;
 	private static boolean turno;
+	private static int contX =0 , contO=0;
 	
 	JButton btnNewButton_1;
 	JButton btnNewButton_2;
@@ -25,6 +31,8 @@ public class Tictactoe {
 	JButton btnNewButton_7;
 	JButton btnNewButton_8;
 	JButton btnNewButton_9;
+	JLabel lblNewLabel;
+	JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
@@ -59,10 +67,12 @@ public class Tictactoe {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 597, 428);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(3, 3, 0, 0));
+		panel.setBackground(new Color(255, 255, 0));
+		frame.getContentPane().add(panel);
+		panel.setLayout(new GridLayout(3, 3, 20, 10));
 		
 		 btnNewButton_1 = new JButton("");
 		 btnNewButton_2 = new JButton("");
@@ -177,6 +187,45 @@ public class Tictactoe {
 					click(btn);
 			}});
 		panel.add(btnNewButton_8);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(128, 255, 128));
+		frame.getContentPane().add(panel_1, BorderLayout.SOUTH);
+		
+		//Boton reiniciar
+		JButton btnNewButton = new JButton("Reiniciar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Component[] elementos = panel.getComponents();
+				
+				for(int i=0 ; i<elementos.length ; i++) {
+					if(elementos[i].getClass().toString().equals("class javax.swing.JButton")) {
+						JButton btn = ((JButton) elementos[i]);
+						
+						btn.setText("");
+					}
+				}
+				
+			}
+		});
+		panel_1.add(btnNewButton);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(0, 128, 192));
+		frame.getContentPane().add(panel_2, BorderLayout.NORTH);
+		panel_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel = new JLabel("Victorias X =");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		panel_2.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("Victorias O =");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		panel_2.add(lblNewLabel_1);
 	
 	}
 	
@@ -197,46 +246,114 @@ public class Tictactoe {
 		 // Victoria
 	    // Filas
 	    if (btnNewButton_1.getText().equals(btnNewButton_2.getText()) && btnNewButton_2.getText().equals(btnNewButton_3.getText()) && !btnNewButton_1.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste!");
+	    	
+	    	JOptionPane.showMessageDialog(null," Ganaste!");
+	    	if(btnNewButton_1.getText().equals("X")&& btnNewButton_2.getText().equals("X") && btnNewButton_3.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	        
 	    }
 	    if (btnNewButton_6.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_9.getText()) && !btnNewButton_4.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste!");
+	    
+	    	JOptionPane.showMessageDialog(null," Ganaste!");
+	    	if(btnNewButton_6.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_9.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	        
 	    }
 	    if (btnNewButton_5.getText().equals(btnNewButton_7.getText()) && btnNewButton_7.getText().equals(btnNewButton_8.getText()) && !btnNewButton_5.getText().equals("")) {
 	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        if(btnNewButton_5.getText().equals("X")&& btnNewButton_7.getText().equals("X") && btnNewButton_8.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	        
 	    }
 
 	    // Columnas
 	    if (btnNewButton_1.getText().equals(btnNewButton_6.getText()) && btnNewButton_6.getText().equals(btnNewButton_5.getText()) && !btnNewButton_1.getText().equals("")) {
 	        JOptionPane.showMessageDialog(null," Ganaste");
+	        if(btnNewButton_1.getText().equals("X")&& btnNewButton_6.getText().equals("X") && btnNewButton_5.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	        
 	    }
 	    if (btnNewButton_2.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_7.getText()) && !btnNewButton_2.getText().equals("")) {
 	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        if(btnNewButton_2.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_7.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	        
 	    }
 	    if (btnNewButton_3.getText().equals(btnNewButton_9.getText()) && btnNewButton_9.getText().equals(btnNewButton_8.getText()) && !btnNewButton_3.getText().equals("")) {
 	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        if(btnNewButton_3.getText().equals("X")&& btnNewButton_9.getText().equals("X") && btnNewButton_8.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	        
 	    }
 
 	    // Diagonales
 	    if (btnNewButton_1.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_8.getText()) && !btnNewButton_1.getText().equals("")) {
 	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        if(btnNewButton_1.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_8.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	        
 	    }
 	    if (btnNewButton_3.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_5.getText()) && !btnNewButton_3.getText().equals("")) {
 	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        if(btnNewButton_3.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_5.getText().equals("X")) {
+	    		contX++;
+		    	lblNewLabel.setText("Victorias X=" + contX);
+	    	}
+	    	else {
+	    		contO++;
+	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    	}
 	    }
 		
+	    
+	    
+	    
 		
 		
 		
 			
 	}
-	
-
+		
 }
