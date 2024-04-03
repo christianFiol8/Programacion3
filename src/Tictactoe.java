@@ -247,103 +247,119 @@ public class Tictactoe {
 	    // Filas
 	    if (btnNewButton_1.getText().equals(btnNewButton_2.getText()) && btnNewButton_2.getText().equals(btnNewButton_3.getText()) && !btnNewButton_1.getText().equals("")) {
 	    	
-	    	JOptionPane.showMessageDialog(null," Ganaste!");
+	    	
 	    	if(btnNewButton_1.getText().equals("X")&& btnNewButton_2.getText().equals("X") && btnNewButton_3.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	        
 	    }
 	    if (btnNewButton_6.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_9.getText()) && !btnNewButton_4.getText().equals("")) {
 	    
-	    	JOptionPane.showMessageDialog(null," Ganaste!");
+	    	
 	    	if(btnNewButton_6.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_9.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	        
 	    }
 	    if (btnNewButton_5.getText().equals(btnNewButton_7.getText()) && btnNewButton_7.getText().equals(btnNewButton_8.getText()) && !btnNewButton_5.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        
 	        if(btnNewButton_5.getText().equals("X")&& btnNewButton_7.getText().equals("X") && btnNewButton_8.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	        
 	    }
 
 	    // Columnas
 	    if (btnNewButton_1.getText().equals(btnNewButton_6.getText()) && btnNewButton_6.getText().equals(btnNewButton_5.getText()) && !btnNewButton_1.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste");
+	        
 	        if(btnNewButton_1.getText().equals("X")&& btnNewButton_6.getText().equals("X") && btnNewButton_5.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	        
 	    }
 	    if (btnNewButton_2.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_7.getText()) && !btnNewButton_2.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        
 	        if(btnNewButton_2.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_7.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	        
 	    }
 	    if (btnNewButton_3.getText().equals(btnNewButton_9.getText()) && btnNewButton_9.getText().equals(btnNewButton_8.getText()) && !btnNewButton_3.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        
 	        if(btnNewButton_3.getText().equals("X")&& btnNewButton_9.getText().equals("X") && btnNewButton_8.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	        
 	    }
 
 	    // Diagonales
 	    if (btnNewButton_1.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_8.getText()) && !btnNewButton_1.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        
 	        if(btnNewButton_1.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_8.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	        
 	    }
 	    if (btnNewButton_3.getText().equals(btnNewButton_4.getText()) && btnNewButton_4.getText().equals(btnNewButton_5.getText()) && !btnNewButton_3.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null," Ganaste!");
+	        
 	        if(btnNewButton_3.getText().equals("X")&& btnNewButton_4.getText().equals("X") && btnNewButton_5.getText().equals("X")) {
 	    		contX++;
 		    	lblNewLabel.setText("Victorias X=" + contX);
+		    	JOptionPane.showMessageDialog(null," Ganó el jugador X!");
 	    	}
 	    	else {
 	    		contO++;
 	    		lblNewLabel_1.setText("Victorias O=" + contO);
+	    		JOptionPane.showMessageDialog(null," Ganó el jugador O!");
 	    	}
 	    }
 		
