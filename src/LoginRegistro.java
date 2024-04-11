@@ -76,14 +76,13 @@ public class LoginRegistro {
 		JMenu mnNewMenu = new JMenu("Cuenta");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Login");
+		JMenuItem mntmNewMenuItem = new JMenuItem("Iniciar Sesión");
 		mnNewMenu.add(mntmNewMenuItem);
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
 				Component[] elementos = frame.getContentPane().getComponents();
 				for(int i=0 ; i<elementos.length ; i++) {
 					if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
@@ -97,8 +96,6 @@ public class LoginRegistro {
 				login(frame);
 				frame.revalidate();
 				frame.repaint();
-				
-				
 			}});
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Registro");
@@ -159,24 +156,150 @@ public class LoginRegistro {
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Alta");
 		mnNewMenu_1.add(mntmNewMenuItem_3);
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				Component[] elementos = frame.getContentPane().getComponents();
+				for(int i=0 ; i<elementos.length ; i++) {
+					if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
+						
+						JPanel panel = ((JPanel) elementos[i]);
+						
+						frame.remove(panel);
+						
+					}
+				}
+				alta(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+				
+			}});
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Baja");
 		mnNewMenu_1.add(mntmNewMenuItem_4);
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				Component[] elementos = frame.getContentPane().getComponents();
+				for(int i=0 ; i<elementos.length ; i++) {
+					if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
+						
+						JPanel panel = ((JPanel) elementos[i]);
+						
+						frame.remove(panel);
+						
+					}
+				}
+				baja(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Consultar");
 		mnNewMenu_1.add(mntmNewMenuItem_5);
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				Component[] elementos = frame.getContentPane().getComponents();
+				for(int i=0 ; i<elementos.length ; i++) {
+					if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
+						
+						JPanel panel = ((JPanel) elementos[i]);
+						
+						frame.remove(panel);
+						
+					}
+				}
+				consultar(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		
 		JMenu mnNewMenu_2 = new JMenu("Ayuda");
 		menuBar.add(mnNewMenu_2);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("¿Cómo crear un usuario?");
 		mnNewMenu_2.add(mntmNewMenuItem_6);
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				Component[] elementos = frame.getContentPane().getComponents();
+				for(int i=0 ; i<elementos.length ; i++) {
+					if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
+						
+						JPanel panel = ((JPanel) elementos[i]);
+						
+						frame.remove(panel);
+						
+					}
+				}
+				crearUsuario(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("¿Cómo acceder al sistema?");
 		mnNewMenu_2.add(mntmNewMenuItem_7);
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				Component[] elementos = frame.getContentPane().getComponents();
+				for(int i=0 ; i<elementos.length ; i++) {
+					if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
+						
+						JPanel panel = ((JPanel) elementos[i]);
+						
+						frame.remove(panel);
+						
+					}
+				}
+				accederSistema(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
 		mnNewMenu_2.add(mntmNewMenuItem_8);
+		mntmNewMenuItem_8.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Component[] elementos = frame.getContentPane().getComponents();
+				for(int i=0 ; i<elementos.length ; i++) {
+					if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
+						
+						JPanel panel = ((JPanel) elementos[i]);
+						
+						frame.remove(panel);
+						
+					}
+				}
+				olvideContraseña(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.NORTH);
@@ -185,8 +308,7 @@ public class LoginRegistro {
 		
 		
 		this.login(frame);
-		//this.registro(frame);
-		//this.recuperarCuenta(frame);
+		
 		
 		
 		
@@ -306,6 +428,7 @@ public class LoginRegistro {
 	}
 	
 	public void login(JFrame frame) {
+		
 		loginPanel = new JPanel();
 		loginPanel.setBackground(Color.decode("#5F7E87"));
 		frame.getContentPane().add(loginPanel, BorderLayout.CENTER);
@@ -412,11 +535,118 @@ public class LoginRegistro {
 		textField_4.setColumns(10);
 		
 		JButton btnNewButton_3 = new JButton("Enviar correo de recuperación");
-		btnNewButton_3.setBounds(31, 169, 423, 21);
+		btnNewButton_3.setBounds(31, 156, 423, 21);
 		panel_3.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Regresar al login");
+		btnNewButton_4.setBounds(32, 212, 422, 21);
+		panel_3.add(btnNewButton_4);
 		
 		
 		
 		
 	}
+	
+	public void alta(JFrame frame) {
+		
+		frame.getContentPane().revalidate();
+		frame.getContentPane().repaint();
+		
+		
+		JPanel alta = new JPanel();
+		alta.setBackground(Color.decode("#D06CE0"));
+		frame.getContentPane().add(alta, BorderLayout.CENTER);
+		alta.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("Alta");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Bookman Old Style" , Font.BOLD , 30));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(142, 64, 279, 47);
+		alta.add(lblNewLabel);
+	}
+	
+	public void baja(JFrame frame) {
+		JPanel baja = new JPanel();
+		baja.setBackground(Color.decode("#A64FB4"));
+		frame.getContentPane().add(baja, BorderLayout.CENTER);
+		baja.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("Baja");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Bookman Old Style" , Font.BOLD , 30));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(142, 64, 279, 47);
+		baja.add(lblNewLabel);
+	}
+	
+	public void consultar(JFrame frame) {
+		JPanel consultar = new JPanel();
+		consultar.setBackground(Color.decode("#7D278A"));
+		frame.getContentPane().add(consultar, BorderLayout.CENTER);
+		consultar.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("Consultar");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Bookman Old Style" , Font.BOLD , 30));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(142, 64, 279, 47);
+		consultar.add(lblNewLabel);
+	}
+	
+	public void crearUsuario(JFrame frame) {
+		JPanel crearUsuario = new JPanel();
+		crearUsuario.setBackground(Color.decode("#60D4E1"));
+		frame.getContentPane().add(crearUsuario, BorderLayout.CENTER);
+		crearUsuario.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("¿Cómo crear usuario?");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Bookman Old Style" , Font.BOLD , 30));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(82, 64, 413, 47);
+		crearUsuario.add(lblNewLabel);
+	}
+	
+	public void accederSistema(JFrame frame) {
+		JPanel accederSistema = new JPanel();
+		accederSistema.setBackground(Color.decode("#33A55E"));
+		frame.getContentPane().add(accederSistema, BorderLayout.CENTER);
+		accederSistema.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("¿Cómo acceder al sistema?");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Bookman Old Style" , Font.BOLD , 30));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(53, 64, 457, 47);
+		accederSistema.add(lblNewLabel);
+	}
+	
+	public void olvideContraseña(JFrame frame) {
+		JPanel olvideContraseña = new JPanel();
+		olvideContraseña.setBackground(Color.decode("#7EB994"));
+		frame.getContentPane().add(olvideContraseña, BorderLayout.CENTER);
+		olvideContraseña.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("¿Que pasa si olvidé mi contraseña?");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Bookman Old Style" , Font.BOLD , 30));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(10, 65, 569, 47);
+		olvideContraseña.add(lblNewLabel);
+	}
+	
+	
 }
