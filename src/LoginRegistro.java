@@ -89,8 +89,7 @@ public class LoginRegistro {
 						
 						JPanel panel = ((JPanel) elementos[i]);
 						
-						frame.remove(panel);
-						
+						frame.remove(panel);		
 					}
 				}
 				login(frame);
