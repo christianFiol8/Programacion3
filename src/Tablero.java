@@ -16,6 +16,11 @@ public class Tablero  implements KeyListener {
 	private JPanel tableroDibujo;
 	
 	private int x=300 , y=200;
+	
+	Player p1 = new Player(300,200,50,50,"#AC7EB9");
+	
+	Player obstaculo = new Player(100,100,50,170,"#C67F25");
+	
 
 	/**
 	 * Launch the application.
@@ -52,8 +57,12 @@ public class Tablero  implements KeyListener {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				
-                g.setColor(Color.red); // Color del rectángulo
-                g.fillRect(x,y,50,50);
+                //g.setColor(Color.red); // Color del rectángulo
+				g.setColor(Color.decode(p1.getC()));
+                g.fillRect(p1.getX(),p1.getY(),p1.getAncho(),p1.getAlto());
+                g.setColor(Color.decode(obstaculo.getC()));
+                g.fillRect(obstaculo.getX(),obstaculo.getY(),obstaculo.getAncho(),obstaculo.getAlto());
+                
 			}
 		};
 		
@@ -80,30 +89,28 @@ public class Tablero  implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(e.getKeyCode());
-		
 		switch(e.getKeyCode()) {
 		
 			case 38: //Flecha Arriba
-				y-=10;
+				p1.setY(p1.getY()-10);
 				break;
 			case 40: //Flecha Abajo
-				y+=10;
+				p1.setY(p1.getY()+10);
 				break;
 			case 37: //Flecha Izquierda
-				x-=10;
+				p1.setX(p1.getX()-10);
 				break;
 			case 39: //Flecha Derecha
-				x+=10;
+				p1.setX(p1.getX()+10);
 				break;
-				
-			
-			
 		}
 	
 		//bleroDibujo.paintComponents(null);
 		//ame.repaint();
+		
+		verificarColision();
 		tableroDibujo.repaint();
+		
 		//bleroDibujo.update(null);
 		
 	}
@@ -113,5 +120,12 @@ public class Tablero  implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
+	 public void verificarColision() {
+	        if (p1.colision(p1, obstaculo)) {
+	            System.out.println("Colisión");
+	        } else {
+	            System.out.println("No hay colisión");
+	        }
+	    }
 
 }
