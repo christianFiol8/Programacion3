@@ -55,21 +55,38 @@ public class Player {
 		this.c = c;
 	}
 	
-	public boolean colision(Player p1, Player obstaculo) {
-		if (p1.x + p1.ancho <= obstaculo.x) {
+	public boolean colision(Player p1) {
+		if (p1.x + p1.ancho <= this.x) {
             return false;
         }
-        if (p1.y + p1.alto <= obstaculo.y) {
+        if (p1.y + p1.alto <= this.y) {
             return false;
         }
-        if (p1.x > obstaculo.x + obstaculo.ancho) {
+        if (p1.x > this.x + this.ancho) {
             return false;
         }
-        if (p1.y > obstaculo.y + obstaculo.alto) {
+        if (p1.y > this.y + this.alto) {
             return false;
         }
         return true;
 
 	}
-	
+	public boolean llegoMetea(Player p1, Player meta) {
+		if (p1.x + p1.ancho <= meta.x) {
+            return false;
+        }
+        if (p1.y + p1.alto <= meta.y) {
+            return false;
+        }
+        if (p1.x > meta.x + meta.ancho) {
+            return false;
+        }
+        if (p1.y > meta.y + meta.alto) {
+            return false;
+        }
+        return true;
+
+	}
 }
+	
+
