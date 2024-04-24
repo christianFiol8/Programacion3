@@ -15,12 +15,19 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+import java.io.FileReader;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class LoginRegistro {
 
@@ -478,9 +485,29 @@ public class LoginRegistro {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				JOptionPane.showMessageDialog(null, "Error , No se puede Acceder");
+				//JOptionPane.showMessageDialog(null, "Error , No se puede Acceder");
 				
-			}
+				String filePath = "src/users.json";
+
+		        try {
+		            //lector de archivos JSON
+		            FileReader reader = new FileReader(filePath);
+
+		            // analizador JSON
+		            JSONParser parser = new JSONParser();
+
+		            // Parsear archivo JSON
+		            JSONArray jsonArray = (JSONArray) parser.parse(reader);
+
+		            // Mostrar el contenido 
+		            System.out.println(jsonArray.toJSONString());
+		            reader.close();
+		        } catch (Exception ep) {
+		            ep.printStackTrace();
+		        }
+		    }
+				
+			
 		});
 		btnNewButton.setBounds(72, 387, 429, 47);
 		loginPanel.add(btnNewButton);
