@@ -673,6 +673,5 @@ public class LoginRegistro {
 		lblNewLabel.setBounds(10, 65, 569, 47);
 		olvideContraseña.add(lblNewLabel);
 	}
-	
-	
+
 }
