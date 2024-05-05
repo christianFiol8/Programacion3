@@ -29,7 +29,7 @@ public class OutView {
 	
 	public JPanel login() {
 		
-		panel.setBackground(Color.blue);
+		panel.setBackground(Color.decode("#5A8092"));
 		panel.setLayout(null);
 		JLabel lblNewLabel = new JLabel("Iniciar Sesión");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
