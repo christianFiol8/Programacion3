@@ -1,0 +1,12 @@
+[  
+    {  
+        "Usuario":"Christian",
+        "Contraseña":"holacomoestas",
+        "job":"Teacher"
+    },
+    {  
+        "Usuario":"Mark",
+        "Contraseña":"adiosamigo",
+        "job":"Doctor"
+    }
+]
